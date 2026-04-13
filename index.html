@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TheCrumbz | Game Developer Portfolio</title>
+    <style>
+        :root {
+            --bg: #0d1117;
+            --text: #c9d1d9;
+            --accent: #58a6ff;
+            --card: #161b22;
+        }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; padding: 20px; }
+        header { text-align: center; padding: 50px 0; }
+        h1 { color: var(--accent); margin-bottom: 5px; }
+        .container { max-width: 800px; margin: 0 auto; }
+        .skills { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 40px; }
+        .tag { background: var(--card); padding: 5px 15px; border-radius: 15px; border: 1px solid #30363d; font-size: 0.9rem; }
+        .project-card { background: var(--card); border: 1px solid #30363d; border-radius: 8px; padding: 20px; margin-bottom: 20px; }
+        .project-header { display: flex; justify-content: space-between; align-items: center; }
+        .btn { color: var(--accent); text-decoration: none; font-weight: bold; }
+        .btn:hover { text-decoration: underline; }
+        code { background: #21262d; padding: 2px 5px; border-radius: 4px; font-family: monospace; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>TheCrumbz</h1>
+        <p>14-Year-Old Game Programmer | UE5 • C++ • C# • Python</p>
+        <div class="skills">
+            <span class="tag">Unreal Engine 5</span>
+            <span class="tag">C++</span>
+            <span class="tag">C# (Unity)</span>
+            <span class="tag">Lua (Roblox)</span>
+            <span class="tag">Python</span>
+            <span class="tag">Git</span>
+        </div>
+    </header>
+
+    <section id="projects">
+        <h2>Featured Projects</h2>
+
+        <div class="project-card">
+            <div class="project-header">
+                <h3>UE5 C++ Combat System</h3>
+                <a href="https://github.com/TheCrumbz/YOUR-REPO" class="btn">Source Code →</a>
+            </div>
+            <p>A modular combat system built in <code>C++</code> utilizing Data Assets and Interfaces. Features include custom hit-stop logic and frame-perfect input buffering.</p>
+        </div>
+
+        <div class="project-card">
+            <div class="project-header">
+                <h3>Roblox/Lua Inventory Framework</h3>
+                <a href="#" class="btn">Source Code →</a>
+            </div>
+            <p>Developed a performant, server-authoritative inventory system in <code>Lua</code> that handles 100+ items with zero client-side latency.</p>
+        </div>
+    </section>
+
+    <footer style="text-align: center; margin-top: 50px; opacity: 0.6; font-size: 0.8rem;">
+        <p>&copy; 2026 TheCrumbz. Built with Code.</p>
+    </footer>
+</div>
+
+</body>
+</html>
