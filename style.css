@@ -41,26 +41,6 @@ nav a:hover, nav a.active { background: var(--card); color: var(--accent); borde
 .card h3 { border-bottom: 1px solid var(--border); padding-bottom: 10px; margin-bottom: 15px; }
 .skill-tag { display: inline-block; background: #21262d; border: 1px solid var(--border); padding: 4px 10px; border-radius: 4px; margin: 4px 4px 4px 0; font-size: 0.85rem; }
 
-/* EDUCATION SECTION STYLES */
-.course-item { 
-    border-left: 3px solid var(--accent); 
-    padding-left: 15px; 
-    margin-bottom: 20px; 
-}
-
-.course-title { 
-    font-weight: bold; 
-    color: white; 
-    display: block; 
-    margin-bottom: 5px;
-}
-
-.course-meta { 
-    font-size: 0.85rem; 
-    color: #8b949e; 
-    display: block;
-}
-
 /* PROJECT PAGE STYLES */
 .project-header { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 30px; margin-bottom: 25px; }
 .info-bar { display: flex; gap: 30px; margin-top: 20px; background: #090c10; padding: 15px 20px; border-radius: 8px; border-left: 4px solid var(--accent); }
