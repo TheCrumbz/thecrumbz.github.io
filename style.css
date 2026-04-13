@@ -1,0 +1,45 @@
+:root { 
+    --bg: #0d1117; 
+    --text: #c9d1d9; 
+    --accent: #58a6ff; 
+    --card: #161b22; 
+    --border: #30363d; 
+}
+
+body { 
+    font-family: -apple-system, sans-serif; 
+    background: var(--bg); 
+    color: var(--text); 
+    margin: 0; 
+    padding: 20px; 
+}
+
+.container { max-width: 900px; margin: 0 auto; }
+
+nav { 
+    display: flex; 
+    gap: 15px; 
+    margin-bottom: 30px; 
+    border-bottom: 1px solid var(--border); 
+    padding-bottom: 15px; 
+}
+
+nav a { 
+    color: var(--text); 
+    text-decoration: none; 
+    padding: 8px 12px; 
+    border-radius: 6px; 
+}
+
+nav a:hover, nav a.active { 
+    background: var(--card); 
+    color: var(--accent); 
+}
+
+h1, h2 { color: white; }
+.project-box { 
+    background: var(--card); 
+    border: 1px solid var(--border); 
+    padding: 20px; 
+    border-radius: 8px; 
+}
