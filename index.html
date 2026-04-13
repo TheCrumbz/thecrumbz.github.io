@@ -3,85 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TheCrumbz | Portfolio</title>
+    <title>Elvin I. T. | Portfolio</title>
     <style>
-        /* --- EVERYTHING STAYS IN THIS FILE --- */
-        :root { --bg: #0d1117; --text: #c9d1d9; --accent: #58a6ff; --card: #161b22; --border: #30363d; --code: #010409; }
+        :root { --bg: #0d1117; --text: #c9d1d9; --accent: #58a6ff; --card: #161b22; --border: #30363d; --ue-gold: #e2b007; }
         body { font-family: -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; padding: 20px; }
         .container { max-width: 900px; margin: 0 auto; }
         
-        /* Navigation Area */
-        nav { display: flex; gap: 15px; margin-bottom: 30px; border-bottom: 1px solid var(--border); padding-bottom: 15px; flex-wrap: wrap; }
+        /* Navigation - Populated by nav.js */
+        nav { display: flex; gap: 15px; margin-bottom: 40px; border-bottom: 1px solid var(--border); padding-bottom: 15px; flex-wrap: wrap; }
         nav a { color: var(--text); text-decoration: none; padding: 8px 12px; border-radius: 6px; font-weight: bold; font-size: 0.9rem; }
-        nav a:hover { background: var(--card); color: var(--accent); }
         .active { background: var(--card) !important; color: var(--accent) !important; border: 1px solid var(--border); }
 
-        /* Content Sections */
-        .section { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 25px; margin-bottom: 20px; }
-        h1, h2, h3 { color: white; margin-top: 0; }
-        .accent-text { color: var(--accent); }
-        
-        /* Grid for Screenshots/Info */
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        @media (max-width: 700px) { .grid { grid-template-columns: 1fr; } }
+        /* About Section */
+        .hero { padding: 40px 0; text-align: left; border-bottom: 1px solid var(--border); margin-bottom: 30px; }
+        h1 { font-size: 2.5rem; color: white; margin: 0; }
+        .subtitle { color: var(--accent); font-weight: bold; font-size: 1.2rem; }
 
-        .img-box { background: #21262d; border-radius: 8px; aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; border: 1px dashed var(--border); color: #8b949e; }
-        .code-block { background: var(--code); padding: 15px; border-radius: 8px; border: 1px solid var(--border); font-family: monospace; font-size: 0.85rem; overflow-x: auto; }
+        .content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        @media (max-width: 700px) { .content-grid { grid-template-columns: 1fr; } }
+
+        .card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 25px; height: 100%; }
+        h3 { color: white; margin-top: 0; display: flex; align-items: center; gap: 10px; }
+
+        .skill-tag { display: inline-block; background: #21262d; border: 1px solid var(--border); padding: 4px 10px; border-radius: 4px; margin: 4px; font-size: 0.85rem; }
         
-        .btn { display: inline-block; background: var(--accent); color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: bold; margin-top: 10px; }
-        .btn:hover { opacity: 0.9; }
+        /* Course Section Styling */
+        .course-item { border-left: 3px solid var(--accent); padding-left: 15px; margin-bottom: 20px; }
+        .course-title { font-weight: bold; color: white; display: block; }
+        .course-meta { font-size: 0.85rem; color: #8b949e; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <nav>
-        <a href="index.html">ABOUT</a>
-        <a href="casino.html">CASINO GAME</a>
-        <a href="shooter.html">MULTIPLAYER SHOOTER</a>
-        <a href="roblox.html">ROBLOX LUA</a>
-    </nav>
+    <nav></nav> <header class="hero">
+        <h1>Elvin Ivarsson Täljedal</h1>
+        <div class="subtitle">Gameplay Programmer & Unreal Engine 5 Specialist</div>
+        <p style="max-width: 700px; font-size: 1.1rem; margin-top: 20px;">
+            I am a 14-year-old developer based in Sweden with a focus on <strong>C++</strong> and <strong>Multiplayer Systems</strong>. 
+            Moving from high-level scripting in Lua and Python to deep systems architecture in UE5, I build performance-driven game mechanics and networked prototypes.
+        </p>
+    </header>
 
-    <div class="section">
-        <h1>Project Name: <span class="accent-text">Enter Title Here</span></h1>
-        <p>Short 1-2 sentence pitch about what this is and what engine/language was used.</p>
-    </div>
-
-    <div class="grid">
-        <div class="section">
-            <h3>Overview</h3>
-            <p>Write about the project goals here. What did you want to achieve? Why did you build it?</p>
-            <ul>
-                <li>Feature 1: Detail...</li>
-                <li>Feature 2: Detail...</li>
-                <li>Feature 3: Detail...</li>
-            </ul>
-        </div>
-        <div class="section">
-            <h3>Visuals</h3>
-            <div class="img-box">
-                [ Screenshot / Video Clip ]
+    <div class="content-grid">
+        <div class="card">
+            <h3>Technical Skills</h3>
+            <div>
+                <strong>Languages:</strong><br>
+                <span class="skill-tag">C++</span> <span class="skill-tag">C#</span> <span class="skill-tag">Lua</span> <span class="skill-tag">Python</span>
             </div>
-            <a href="#" class="btn">View on GitHub</a>
+            <div style="margin-top: 15px;">
+                <strong>Tools & Engines:</strong><br>
+                <span class="skill-tag">Unreal Engine 5</span> <span class="skill-tag">Git/GitHub</span> <span class="skill-tag">Roblox Studio</span> <span class="skill-tag">Visual Studio</span>
+            </div>
+            <div style="margin-top: 15px;">
+                <strong>Specializations:</strong><br>
+                <span class="skill-tag">Network Replication</span> <span class="skill-tag">Gameplay Ability System (GAS)</span> <span class="skill-tag">UI/UX Logic</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Education & Certifications</h3>
+            <div class="course-item">
+                <span class="course-title">Unreal Engine 5 C++ Ultimate Game Developer</span>
+                <span class="course-meta">Instructor: Stephen Ulibarri | 99% Complete</span>
+            </div>
+            <div class="course-item">
+                <span class="course-title">Unreal Engine 5 C++ Multiplayer Shooter</span>
+                <span class="course-meta">Instructor: Stephen Ulibarri | 60% Complete</span>
+            </div>
         </div>
     </div>
 
-    <div class="section">
-        <h3>Technical Breakdown</h3>
-        <p>This is where you show off your <strong>C++ or Blueprint</strong> logic. Explain the math or the architecture.</p>
-        <div class="code-block">
-            // Paste a cool snippet of code here
-            void AMyActor::BeginPlay() {
-                Super::BeginPlay();
-                // Logic goes here...
-            }
-        </div>
+    <div class="card" style="margin-top: 30px;">
+        <h3>My Philosophy</h3>
+        <p>I believe in writing clean, modular code that is easy to scale. Whether it's optimizing Blueprint logic or building complex C++ actor components, I focus on the "why" behind the implementation—ensuring that every system I build is both performant and maintainable for larger teams.</p>
     </div>
 
-    <footer style="text-align: center; opacity: 0.4; font-size: 0.8rem; margin-top: 40px;">
-        <p>&copy; 2026 Elvin I. T.</p>
+    <footer style="text-align: center; opacity: 0.4; font-size: 0.8rem; padding: 40px;">
+        &copy; 2026 Elvin I. T. (TheCrumbz) | Built with HTML/CSS/JS
     </footer>
 </div>
 
+<script src="nav.js"></script>
 </body>
 </html>
