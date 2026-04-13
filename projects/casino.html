@@ -3,37 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TheCrumbz | UE5 Project</title>
-    <style>
-        :root { --bg: #0d1117; --text: #c9d1d9; --accent: #58a6ff; --card: #161b22; --border: #30363d; --code: #010409; --ue-gold: #e2b007; }
-        body { font-family: -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; padding: 20px; }
-        .container { max-width: 1000px; margin: 0 auto; }
-        
-        /* Navigation - This will be filled by nav.js */
-        nav { display: flex; gap: 15px; margin-bottom: 30px; border-bottom: 1px solid var(--border); padding-bottom: 15px; flex-wrap: wrap; }
-        nav a { color: var(--text); text-decoration: none; padding: 8px 12px; border-radius: 6px; font-weight: bold; font-size: 0.9rem; }
-        .active { background: var(--card) !important; color: var(--accent) !important; border: 1px solid var(--border); }
-
-        /* Project Layout */
-        .section { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 25px; margin-bottom: 20px; }
-        .grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 20px; }
-        @media (max-width: 800px) { .grid { grid-template-columns: 1fr; } }
-
-        h1, h2, h3 { color: white; margin-top: 0; }
-        .ue-tag { color: var(--ue-gold); font-family: monospace; font-weight: bold; }
-        
-        /* Media Box for Videos/Gifs */
-        .media-container { background: #000; border-radius: 8px; aspect-ratio: 16/9; overflow: hidden; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; position: relative; }
-        .media-container img, .media-container video { width: 100%; height: 100%; object-fit: cover; }
-
-        /* Technical Info Box */
-        .tech-specs { list-style: none; padding: 0; }
-        .tech-specs li { padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
-        .tech-specs li strong { color: var(--accent); }
-
-        .code-block { background: var(--code); padding: 15px; border-radius: 8px; border: 1px solid var(--border); font-family: 'Cascadia Code', monospace; font-size: 0.85rem; overflow-x: auto; color: #d1d1d1; }
-        .btn { display: inline-block; background: var(--accent); color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: bold; margin-top: 10px; }
-    </style>
+    <title>TheCrumbz | Project Title</title>
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
 
@@ -43,16 +14,16 @@
             <div class="section">
                 <span class="ue-tag">// UNREAL ENGINE 5 PROJECT</span>
                 <h1>Project Title Here</h1>
-                <p>Describe the core hook of the game. What makes the gameplay interesting? Mention if it's Singleplayer, Multiplayer, or a specific Technical Prototype.</p>
+                <p>Describe the core hook. Mention if it's Singleplayer, Multiplayer, or a Technical Prototype.</p>
                 
                 <div class="media-container">
-                    <p style="color:#444">Primary Gameplay Video/Screenshot</p>
+                    <p style="color:#444">[ Gameplay Video or Screenshot ]</p>
                 </div>
             </div>
 
             <div class="section">
                 <h3>Technical Challenges</h3>
-                <p>What was the hardest part to code? (e.g., <em>"Optimizing the slot machine's spinning logic to avoid frame drops"</em> or <em>"Handling server-side validation for player bets"</em>).</p>
+                <p>Discuss the logic hurdles you overcame here.</p>
             </div>
         </div>
 
@@ -65,15 +36,15 @@
                     <li><strong>Timeline:</strong> 4 Weeks</li>
                     <li><strong>Focus:</strong> System Architecture</li>
                 </ul>
-                <a href="#" class="btn" style="width: 80%; text-align: center;">View Code Repository</a>
+                <a href="#" class="btn" style="width: 100%; box-sizing: border-box;">View Code Repository</a>
             </div>
 
             <div class="section">
                 <h3>Key Features</h3>
-                <ul style="padding-left: 18px;">
-                    <li>Data-driven Payout Tables</li>
-                    <li>Event-based UI System</li>
-                    <li>Custom Randomization Stream</li>
+                <ul style="padding-left: 18px; margin: 0;">
+                    <li>Feature One</li>
+                    <li>Feature Two</li>
+                    <li>Feature Three</li>
                 </ul>
             </div>
         </div>
@@ -81,18 +52,10 @@
 
     <div class="section">
         <h3>Logic Spotlight</h3>
-        <p>A quick look at how I handled the core logic in C++:</p>
+        <p>A look at the core logic:</p>
         <div class="code-block">
 <pre>
-// Example: Handling a "Spin" request
-void ACasinoMachine::RequestSpin(APlayerController* Player) 
-{
-    if (CurrentState == EMachineState::Idle && HasBalance(Player))
-    {
-        CalculateOutcome();
-        StartVisualRotation();
-    }
-}
+// Your Code Here
 </pre>
         </div>
     </div>
