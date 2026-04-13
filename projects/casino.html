@@ -3,85 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TheCrumbz | Portfolio</title>
+    <title>TheCrumbz | UE5 Project</title>
     <style>
-        /* --- EVERYTHING STAYS IN THIS FILE --- */
-        :root { --bg: #0d1117; --text: #c9d1d9; --accent: #58a6ff; --card: #161b22; --border: #30363d; --code: #010409; }
+        :root { --bg: #0d1117; --text: #c9d1d9; --accent: #58a6ff; --card: #161b22; --border: #30363d; --code: #010409; --ue-gold: #e2b007; }
         body { font-family: -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; padding: 20px; }
-        .container { max-width: 900px; margin: 0 auto; }
+        .container { max-width: 1000px; margin: 0 auto; }
         
-        /* Navigation Area */
+        /* Navigation - This will be filled by nav.js */
         nav { display: flex; gap: 15px; margin-bottom: 30px; border-bottom: 1px solid var(--border); padding-bottom: 15px; flex-wrap: wrap; }
         nav a { color: var(--text); text-decoration: none; padding: 8px 12px; border-radius: 6px; font-weight: bold; font-size: 0.9rem; }
-        nav a:hover { background: var(--card); color: var(--accent); }
         .active { background: var(--card) !important; color: var(--accent) !important; border: 1px solid var(--border); }
 
-        /* Content Sections */
+        /* Project Layout */
         .section { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 25px; margin-bottom: 20px; }
-        h1, h2, h3 { color: white; margin-top: 0; }
-        .accent-text { color: var(--accent); }
-        
-        /* Grid for Screenshots/Info */
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        @media (max-width: 700px) { .grid { grid-template-columns: 1fr; } }
+        .grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 20px; }
+        @media (max-width: 800px) { .grid { grid-template-columns: 1fr; } }
 
-        .img-box { background: #21262d; border-radius: 8px; aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; border: 1px dashed var(--border); color: #8b949e; }
-        .code-block { background: var(--code); padding: 15px; border-radius: 8px; border: 1px solid var(--border); font-family: monospace; font-size: 0.85rem; overflow-x: auto; }
+        h1, h2, h3 { color: white; margin-top: 0; }
+        .ue-tag { color: var(--ue-gold); font-family: monospace; font-weight: bold; }
         
+        /* Media Box for Videos/Gifs */
+        .media-container { background: #000; border-radius: 8px; aspect-ratio: 16/9; overflow: hidden; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; position: relative; }
+        .media-container img, .media-container video { width: 100%; height: 100%; object-fit: cover; }
+
+        /* Technical Info Box */
+        .tech-specs { list-style: none; padding: 0; }
+        .tech-specs li { padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+        .tech-specs li strong { color: var(--accent); }
+
+        .code-block { background: var(--code); padding: 15px; border-radius: 8px; border: 1px solid var(--border); font-family: 'Cascadia Code', monospace; font-size: 0.85rem; overflow-x: auto; color: #d1d1d1; }
         .btn { display: inline-block; background: var(--accent); color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: bold; margin-top: 10px; }
-        .btn:hover { opacity: 0.9; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <nav>
-        <a href="index.html">ABOUT</a>
-        <a href="casino.html">CASINO GAME</a>
-        <a href="shooter.html">MULTIPLAYER SHOOTER</a>
-        <a href="roblox.html">ROBLOX LUA</a>
-    </nav>
-
-    <div class="section">
-        <h1>Project Name: <span class="accent-text">Enter Title Here</span></h1>
-        <p>Short 1-2 sentence pitch about what this is and what engine/language was used.</p>
-    </div>
-
-    <div class="grid">
-        <div class="section">
-            <h3>Overview</h3>
-            <p>Write about the project goals here. What did you want to achieve? Why did you build it?</p>
-            <ul>
-                <li>Feature 1: Detail...</li>
-                <li>Feature 2: Detail...</li>
-                <li>Feature 3: Detail...</li>
-            </ul>
-        </div>
-        <div class="section">
-            <h3>Visuals</h3>
-            <div class="img-box">
-                [ Screenshot / Video Clip ]
+    <nav></nav> <div class="grid">
+        <div class="left-col">
+            <div class="section">
+                <span class="ue-tag">// UNREAL ENGINE 5 PROJECT</span>
+                <h1>Project Title Here</h1>
+                <p>Describe the core hook of the game. What makes the gameplay interesting? Mention if it's Singleplayer, Multiplayer, or a specific Technical Prototype.</p>
+                
+                <div class="media-container">
+                    <p style="color:#444">Primary Gameplay Video/Screenshot</p>
+                </div>
             </div>
-            <a href="#" class="btn">View on GitHub</a>
+
+            <div class="section">
+                <h3>Technical Challenges</h3>
+                <p>What was the hardest part to code? (e.g., <em>"Optimizing the slot machine's spinning logic to avoid frame drops"</em> or <em>"Handling server-side validation for player bets"</em>).</p>
+            </div>
+        </div>
+
+        <div class="right-col">
+            <div class="section">
+                <h3>Project Stats</h3>
+                <ul class="tech-specs">
+                    <li><strong>Engine:</strong> Unreal Engine 5.4</li>
+                    <li><strong>Language:</strong> C++ / Blueprints</li>
+                    <li><strong>Timeline:</strong> 4 Weeks</li>
+                    <li><strong>Focus:</strong> System Architecture</li>
+                </ul>
+                <a href="#" class="btn" style="width: 80%; text-align: center;">View Code Repository</a>
+            </div>
+
+            <div class="section">
+                <h3>Key Features</h3>
+                <ul style="padding-left: 18px;">
+                    <li>Data-driven Payout Tables</li>
+                    <li>Event-based UI System</li>
+                    <li>Custom Randomization Stream</li>
+                </ul>
+            </div>
         </div>
     </div>
 
     <div class="section">
-        <h3>Technical Breakdown</h3>
-        <p>This is where you show off your <strong>C++ or Blueprint</strong> logic. Explain the math or the architecture.</p>
+        <h3>Logic Spotlight</h3>
+        <p>A quick look at how I handled the core logic in C++:</p>
         <div class="code-block">
-            // Paste a cool snippet of code here
-            void AMyActor::BeginPlay() {
-                Super::BeginPlay();
-                // Logic goes here...
-            }
+<pre>
+// Example: Handling a "Spin" request
+void ACasinoMachine::RequestSpin(APlayerController* Player) 
+{
+    if (CurrentState == EMachineState::Idle && HasBalance(Player))
+    {
+        CalculateOutcome();
+        StartVisualRotation();
+    }
+}
+</pre>
         </div>
     </div>
 
-    <footer style="text-align: center; opacity: 0.4; font-size: 0.8rem; margin-top: 40px;">
-        <p>&copy; 2026 Elvin I. T.</p>
+    <footer style="text-align: center; opacity: 0.4; font-size: 0.8rem; padding: 20px;">
+        &copy; 2026 Elvin I. T. (TheCrumbz)
     </footer>
 </div>
 
+<script src="nav.js"></script>
 </body>
 </html>
