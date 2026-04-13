@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Title | TheCrumbz</title>
-    <link rel="icon" type="image/png" href="../favicon.png">
+    <title>Casino System | TheCrumbz</title>
+    <link rel="icon" type="image/png" href="../CrumbzPFP.png">
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
@@ -12,13 +11,12 @@
         <nav></nav>
 
         <div class="project-header">
-            <h1>[ Project Name Here ]</h1>
-            <p>[ A 1-2 sentence hook about the game and why you built it. ]</p>
-            
+            <h1>UE5: Casino Backend System</h1>
+            <p>A deep dive into probability architecture, dynamic UI event-dispatching, and game state management.</p>
             <div class="info-bar">
-                <div><span>ENGINE:</span> <strong>Unreal Engine 5.X</strong></div>
+                <div><span>ENGINE:</span> <strong>Unreal Engine 5.4</strong></div>
                 <div><span>LANGUAGE:</span> <strong>C++ / Blueprints</strong></div>
-                <div><span>ROLE:</span> <strong>[ e.g., Gameplay Programmer ]</strong></div>
+                <div><span>ROLE:</span> <strong>Systems Programmer</strong></div>
             </div>
         </div>
 
@@ -30,12 +28,10 @@
 
         <div id="media" class="sub-content active">
             <div class="gallery-grid">
-                <div class="main-video">
-                    <p style="text-align:center; padding-top: 25%; color: #8b949e;">[ Main Gameplay Video / Image ]</p>
-                </div>
+                <div class="main-video"><p style="text-align:center; padding-top:25%; color:#555;">[ Main Video / Image ]</p></div>
                 <div class="screenshot-column">
-                    <div class="ss-item"><p style="text-align:center; padding-top: 20%; color: #8b949e;">[ Detail 1 ]</p></div>
-                    <div class="ss-item"><p style="text-align:center; padding-top: 20%; color: #8b949e;">[ Detail 2 ]</p></div>
+                    <div class="ss-item"><p style="text-align:center; padding-top:20%; color:#555;">[ Screenshot 1 ]</p></div>
+                    <div class="ss-item"><p style="text-align:center; padding-top:20%; color:#555;">[ Screenshot 2 ]</p></div>
                 </div>
             </div>
         </div>
@@ -43,55 +39,39 @@
         <div id="tech" class="sub-content">
             <div class="section">
                 <h2>Technical Challenges</h2>
-                <p>[ Explain the hardest part of the logic here. What went wrong, and how did you fix it? ]</p>
-                
-                <h3 style="margin-top: 30px;">Core Systems</h3>
-                <ul class="tech-specs">
-                    <li><strong>System 1:</strong> [ e.g., Custom replication for projectiles ]</li>
-                    <li><strong>System 2:</strong> [ e.g., Data-driven weapon stats ]</li>
-                </ul>
-
+                <p>One major hurdle was ensuring the "Reel Spin" animation didn't dictate the outcome. I built a system where the Server pre-calculates the result, which then sends a "Stop Goal" to the visuals.</p>
                 <div class="code-block" style="margin-top: 20px;">
-// Snippet highlighting a smart solution
-void AMyCharacter::FireWeapon() {
-    // Show your best C++ here
+// Pseudo-logic for the Spin Result
+void ACasinoController::GenerateResult() {
+    float RandomRoll = FMath::FRandRange(0.f, 100.f);
+    SelectedOutcome = PayoutTable->GetOutcomeForRoll(RandomRoll);
+    OnSpinResultGenerated.Broadcast(SelectedOutcome);
 }
                 </div>
             </div>
         </div>
 
         <div id="downloads" class="sub-content">
-            <div class="download-section">
+            <div class="section" style="display:flex; justify-content:space-between; align-items:center;">
                 <div>
-                    <h3>Ready to review?</h3>
-                    <p>Check out the source code or download the playable build.</p>
+                    <h3>Ready to test?</h3>
+                    <p style="margin:0;">Check out the source code or download the playable build.</p>
                 </div>
-                <div style="display: flex; gap: 10px;">
-                    <a href="#" class="btn btn-secondary">GitHub Source</a>
-                    <a href="#" class="btn" style="background: white; color: #238636;">Download Build</a>
+                <div style="display:flex; gap:10px;">
+                    <a href="#" class="btn" style="background:#21262d; border:1px solid var(--border);">GitHub Source</a>
+                    <a href="#" class="btn" style="background:#238636; border:1px solid #2ea44f;">Download Build</a>
                 </div>
             </div>
         </div>
-
     </div>
 
     <script src="../nav.js"></script>
-
     <script>
         function openSubTab(evt, tabId) {
-            // Hide all sub-contents
             let contents = document.getElementsByClassName("sub-content");
-            for (let i = 0; i < contents.length; i++) {
-                contents[i].classList.remove("active");
-            }
-            
-            // Remove active class from all buttons
+            for (let i = 0; i < contents.length; i++) contents[i].classList.remove("active");
             let buttons = document.getElementsByClassName("sub-btn");
-            for (let i = 0; i < buttons.length; i++) {
-                buttons[i].classList.remove("active");
-            }
-            
-            // Show the clicked tab and set button to active
+            for (let i = 0; i < buttons.length; i++) buttons[i].classList.remove("active");
             document.getElementById(tabId).classList.add("active");
             evt.currentTarget.classList.add("active");
         }
