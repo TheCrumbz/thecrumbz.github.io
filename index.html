@@ -1,101 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TheCrumbz | Portfolio</title>
-    <style>
-        :root { --bg: #0d1117; --text: #c9d1d9; --accent: #58a6ff; --card: #161b22; --border: #30363d; --code-bg: #010409; }
-        body { font-family: -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; padding: 20px; }
-        .container { max-width: 1000px; margin: 0 auto; }
-        
-        header { padding: 30px 0; border-bottom: 1px solid var(--border); }
-        .bio { font-size: 1rem; opacity: 0.8; margin-top: 10px; }
-
-        /* Navigation Tabs */
-        .tabs { display: flex; gap: 5px; margin: 30px 0; overflow-x: auto; padding-bottom: 10px; }
-        .tab-btn { background: var(--card); border: 1px solid var(--border); color: var(--text); padding: 10px 20px; cursor: pointer; border-radius: 6px; white-space: nowrap; }
-        .tab-btn.active { border-color: var(--accent); color: var(--accent); background: #1f2937; }
-
-        .tab-content { display: none; animation: fadeIn 0.4s; }
-        .tab-content.active { display: block; }
-
-        /* Project Layout */
-        .project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 20px; }
-        @media (max-width: 768px) { .project-grid { grid-template-columns: 1fr; } }
-
-        .screenshot-placeholder { background: #21262d; border-radius: 8px; aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; border: 1px dashed var(--border); }
-        
-        .tech-list { background: var(--code-bg); padding: 15px; border-radius: 8px; border: 1px solid var(--border); font-family: monospace; font-size: 0.9rem; }
-        .tech-list h4 { margin-top: 0; color: var(--accent); }
-
-        h2 { color: white; margin-bottom: 10px; }
-        code { color: #ff7b72; }
-
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="container">
+        <nav>
+            <a href="index.html" class="active">About</a>
+            <a href="projects/casino.html">Casino Game</a>
+            <a href="projects/shooter.html">Multiplayer Shooter</a>
+        </nav>
 
-<div class="container">
-    <header>
-        <h1>Elvin I. T. <span style="font-weight: normal; opacity: 0.5;">(TheCrumbz)</span></h1>
-        <p class="bio">14yo Gameplay Programmer | UE5 C++ Specialist</p>
-    </header>
+        <header>
+            <h1>Elvin I. T.</h1>
+            <p>14yo UE5 Programmer | C++ & Multiplayer Systems</p>
+        </header>
 
-    <div class="tabs">
-        <button class="tab-btn active" onclick="openTab(event, 'casino')">UE5: Casino System</button>
-        <button class="tab-btn" onclick="openTab(event, 'project2')">Project Two</button>
-        <button class="tab-btn" onclick="openTab(event, 'project3')">Project Three</button>
-        <button class="tab-btn" onclick="openTab(event, 'about')">About Me</button>
+        <section class="project-box">
+            <h2>Welcome</h2>
+            <p>I'm a developer from Sweden specializing in Unreal Engine 5. I've completed advanced courses in C++ and Network Replication.</p>
+        </section>
     </div>
-
-    <div id="casino" class="tab-content active">
-        <h2>UE5 Casino System</h2>
-        <div class="project-grid">
-            <div class="description">
-                <p>A fully functional casino backend built in <strong>UE5</strong>. This project focuses on secure logic, probability math, and dynamic UI feedback.</p>
-                
-                <h4>Key Features:</h4>
-                <ul>
-                    <li>Probability-based "house edge" algorithms.</li>
-                    <li>State machine for game phases (Betting, Spinning, Result).</li>
-                    <li>Dynamic UI updates using CommonUI.</li>
-                </ul>
-                <a href="#" style="color: var(--accent);">View GitHub Repository →</a>
-            </div>
-            
-            <div class="visuals">
-                <div class="screenshot-placeholder"> [ Image / Video Clip ] </div>
-                <p style="font-size: 0.8rem; text-align: center; opacity: 0.5; margin-top: 10px;">Screenshot of the Slot Logic / UI</p>
-            </div>
-        </div>
-
-        <div class="tech-list" style="margin-top: 30px;">
-            <h4>Technical Explanation</h4>
-            <p>The core logic uses <code>TMap</code> to store payout tables and a custom <code>RandomStream</code> to ensure results are mathematically consistent. I handled the spin animation by decoupling the visual rotation from the actual result calculation to prevent lag from affecting the outcome.</p>
-        </div>
-    </div>
-
-    <div id="about" class="tab-content">
-        <h2>About Me</h2>
-        <p>I am Elvin, a programmer from Sweden. I started with Lua in Roblox and Python, but I’ve moved into C++ and Unreal Engine 5 to build more complex, high-performance systems.</p>
-        <p>Currently looking for collaborators and learning more about shader programming and network replication.</p>
-    </div>
-
-    </div>
-
-<script>
-    function openTab(evt, tabName) {
-        var i, tabcontent, tablinks;
-        tabcontent = document.getElementsByClassName("tab-content");
-        for (i = 0; i < tabcontent.length; i++) { tabcontent[i].style.display = "none"; }
-        tablinks = document.getElementsByClassName("tab-btn");
-        for (i = 0; i < tablinks.length; i++) { tablinks[i].className = tablinks[i].className.replace(" active", ""); }
-        document.getElementById(tabName).style.display = "block";
-        evt.currentTarget.className += " active";
-    }
-</script>
-
 </body>
 </html>
