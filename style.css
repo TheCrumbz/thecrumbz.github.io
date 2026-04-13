@@ -136,44 +136,94 @@ p strong {
 
 
 /* =========================================
-   TIMELINE BIO STYLES
+   COMPACT TIMELINE CARDS
 ========================================= */
 .timeline {
-    margin-top: 40px;
-    max-width: 800px;
-    font-size: 1.1rem;
+    position: relative;
+    margin: 30px 0;
+    padding-left: 30px;
 }
 
-.timeline-list {
-    list-style-type: none; /* Removes the boring default bullet points */
-    padding-left: 20px;
-    border-left: 2px solid var(--border); /* The vertical line */
-    margin: 25px 0;
+/* The vertical line */
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 5px;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--accent), transparent);
 }
 
 .timeline-item {
     position: relative;
-    margin-bottom: 20px;
-    padding-left: 15px;
-    color: #8b949e;
-    line-height: 1.6;
+    margin-bottom: 15px; /* Tighter vertical gap */
 }
 
-/* The little blue dots on the timeline */
-.timeline-item::before {
-    content: '';
+.timeline-dot {
     position: absolute;
-    left: -21px; /* Snaps the dot perfectly onto the line */
-    top: 6px;
+    left: -35px;
+    top: 12px;
     width: 10px;
     height: 10px;
-    background: var(--accent);
+    background: var(--bg);
+    border: 2px solid var(--accent);
     border-radius: 50%;
-    border: 2px solid var(--bg);
+    box-shadow: 0 0 8px rgba(88, 166, 255, 0.3);
 }
 
-/* Makes all the bold words in the timeline pop in pure white */
-.timeline strong {
+.timeline-content {
+    background: #090c10;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 10px 15px; /* Compact internal padding */
+    display: inline-block; /* THIS IS KEY: Card only grows to fit text */
+    min-width: 300px;
+    max-width: 500px;
+    transition: 0.2s ease;
+}
+
+.timeline-item:hover .timeline-content {
+    border-color: var(--accent);
+    transform: translateX(5px);
+}
+
+.timeline-date {
+    font-family: monospace;
+    font-size: 0.8rem;
+    color: var(--accent);
+    font-weight: bold;
+    display: block;
+    margin-bottom: 2px;
+}
+
+.timeline-content p {
+    margin: 0;
+    font-size: 0.95rem;
     color: white;
+}
+
+.timeline-content strong {
+    color: var(--accent);
+}
+
+
+/*
+   White bold
+*/
+.current-focus {
+    font-size: 0.95rem;
+    color: #8b949e; /* Muted gray */
+    margin-top: 30px;
+    border-top: 1px solid var(--border);
+    padding-top: 20px;
+    display: inline-block;
+}
+
+.current-focus strong {
+    color: white; 
+    text-transform: uppercase;
+    letter-spacing: 1px;
     font-weight: 800;
+    text-shadow: none; /* This kills the weird red/blue ghosting */
 }
