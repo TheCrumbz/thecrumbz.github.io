@@ -1,26 +1,30 @@
-// This script injects the navigation menu into any page with a <nav> tag
-const navigation = `
-    <a href="index.html" id="nav-about">ABOUT</a>
-    <a href="casino.html" id="nav-casino">CASINO GAME</a>
-    <a href="shooter.html" id="nav-shooter">MULTIPLAYER SHOOTER</a>
-`;
+const username = 'TheCrumbz';
+const repo = 'thecrumbz.github.io';
+const folder = 'projects';
 
-// Wait for the page to load, then find the <nav> element and fill it
-document.addEventListener("DOMContentLoaded", () => {
+async function buildNav() {
     const navElement = document.querySelector('nav');
-    if (navElement) {
-        navElement.innerHTML = navigation;
+    
+    // 1. Add the Home link first
+    navElement.innerHTML = `<a href="/index.html">ABOUT</a>`;
 
-        // Automatically highlight the active link based on the URL
-        const path = window.location.pathname;
-        const page = path.split("/").pop();
-        
-        if (page === "index.html" || page === "") {
-            document.getElementById("nav-about").classList.add("active");
-        } else if (page === "casino.html") {
-            document.getElementById("nav-casino").classList.add("active");
-        } else if (page === "shooter.html") {
-            document.getElementById("nav-shooter").classList.add("active");
-        }
+    try {
+        // 2. Fetch the list of files in the /projects folder from GitHub's API
+        const response = await fetch(`https://api.github.com/repos/${username}/${repo}/contents/${folder}`);
+        const files = await response.json();
+
+        // 3. Loop through every file found
+        files.forEach(file => {
+            if (file.name.endsWith('.html')) {
+                // Clean up the name (e.g., "casino-game.html" becomes "CASINO GAME")
+                const displayName = file.name.replace('.html', '').replace(/-/g, ' ').toUpperCase();
+                
+                navElement.innerHTML += `<a href="/${folder}/${file.name}">${displayName}</a>`;
+            }
+        });
+    } catch (error) {
+        console.error("Could not auto-load projects:", error);
     }
-});
+}
+
+document.addEventListener("DOMContentLoaded", buildNav);
