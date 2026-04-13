@@ -64,23 +64,32 @@ img, video { width: 100%; height: 100%; object-fit: cover; }
 .code-block { background: var(--code); padding: 15px; border-radius: 8px; border: 1px solid var(--border); font-family: monospace; color: #d1d1d1; overflow-x: auto; }
 .btn { display: inline-block; background: var(--accent); color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: bold; }
 
+/* MAKING BOLD ACTUALLY STAND OUT */
+p strong {
+    color: var(--accent);
+    font-weight: 800;
+}
 
 /* =========================================
    EDUCATION & PROGRESS BARS
 ========================================= */
 .course-item { 
+    display: block; /* Required because we are changing it to a link tag */
+    text-decoration: none; /* Stops the text from getting a blue underline */
     background: #090c10; 
     border: 1px solid var(--border);
-    border-left: 4px solid var(--accent); 
+    border-left: 4px solid #30363d; /* Dark gray by default */
     padding: 15px; 
     margin-bottom: 20px; 
     border-radius: 6px;
-    transition: 0.2s;
+    transition: 0.2s ease;
 }
 
 .course-item:hover {
-    transform: translateX(5px); /* Slides right slightly when you hover */
-    border-color: #444c56;
+    transform: translateX(5px); 
+    border-left: 4px solid var(--accent); /* Lights up blue! */
+    background: #10141a; /* Gets slightly lighter on hover */
+    box-shadow: -4px 0 15px rgba(88, 166, 255, 0.15); /* Adds a subtle blue glow behind the line */
 }
 
 .course-title { 
@@ -123,4 +132,48 @@ img, video { width: 100%; height: 100%; object-fit: cover; }
     font-weight: bold;
     display: flex;
     justify-content: flex-end; /* Pushes the percentage text to the right */
+}
+
+
+/* =========================================
+   TIMELINE BIO STYLES
+========================================= */
+.timeline {
+    margin-top: 40px;
+    max-width: 800px;
+    font-size: 1.1rem;
+}
+
+.timeline-list {
+    list-style-type: none; /* Removes the boring default bullet points */
+    padding-left: 20px;
+    border-left: 2px solid var(--border); /* The vertical line */
+    margin: 25px 0;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 20px;
+    padding-left: 15px;
+    color: #8b949e;
+    line-height: 1.6;
+}
+
+/* The little blue dots on the timeline */
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -21px; /* Snaps the dot perfectly onto the line */
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    background: var(--accent);
+    border-radius: 50%;
+    border: 2px solid var(--bg);
+}
+
+/* Makes all the bold words in the timeline pop in pure white */
+.timeline strong {
+    color: white;
+    font-weight: 800;
 }
