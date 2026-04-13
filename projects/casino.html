@@ -1,20 +1,87 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <link rel="stylesheet" href="../style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TheCrumbz | Portfolio</title>
+    <style>
+        /* --- EVERYTHING STAYS IN THIS FILE --- */
+        :root { --bg: #0d1117; --text: #c9d1d9; --accent: #58a6ff; --card: #161b22; --border: #30363d; --code: #010409; }
+        body { font-family: -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; }
+        
+        /* Navigation Area */
+        nav { display: flex; gap: 15px; margin-bottom: 30px; border-bottom: 1px solid var(--border); padding-bottom: 15px; flex-wrap: wrap; }
+        nav a { color: var(--text); text-decoration: none; padding: 8px 12px; border-radius: 6px; font-weight: bold; font-size: 0.9rem; }
+        nav a:hover { background: var(--card); color: var(--accent); }
+        .active { background: var(--card) !important; color: var(--accent) !important; border: 1px solid var(--border); }
+
+        /* Content Sections */
+        .section { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 25px; margin-bottom: 20px; }
+        h1, h2, h3 { color: white; margin-top: 0; }
+        .accent-text { color: var(--accent); }
+        
+        /* Grid for Screenshots/Info */
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        @media (max-width: 700px) { .grid { grid-template-columns: 1fr; } }
+
+        .img-box { background: #21262d; border-radius: 8px; aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; border: 1px dashed var(--border); color: #8b949e; }
+        .code-block { background: var(--code); padding: 15px; border-radius: 8px; border: 1px solid var(--border); font-family: monospace; font-size: 0.85rem; overflow-x: auto; }
+        
+        .btn { display: inline-block; background: var(--accent); color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: bold; margin-top: 10px; }
+        .btn:hover { opacity: 0.9; }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <nav>
-            <a href="../index.html">About</a>
-            <a href="casino.html" class="active">Casino Game</a>
-            <a href="shooter.html">Multiplayer Shooter</a>
-        </nav>
 
-        <h1>UE5 Casino Logic</h1>
-        <div class="project-box">
-            <p>This project was my first major dive into Blueprints and State Machines.</p>
-            </div>
+<div class="container">
+    <nav>
+        <a href="index.html">ABOUT</a>
+        <a href="casino.html">CASINO GAME</a>
+        <a href="shooter.html">MULTIPLAYER SHOOTER</a>
+        <a href="roblox.html">ROBLOX LUA</a>
+    </nav>
+
+    <div class="section">
+        <h1>Project Name: <span class="accent-text">Enter Title Here</span></h1>
+        <p>Short 1-2 sentence pitch about what this is and what engine/language was used.</p>
     </div>
+
+    <div class="grid">
+        <div class="section">
+            <h3>Overview</h3>
+            <p>Write about the project goals here. What did you want to achieve? Why did you build it?</p>
+            <ul>
+                <li>Feature 1: Detail...</li>
+                <li>Feature 2: Detail...</li>
+                <li>Feature 3: Detail...</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h3>Visuals</h3>
+            <div class="img-box">
+                [ Screenshot / Video Clip ]
+            </div>
+            <a href="#" class="btn">View on GitHub</a>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>Technical Breakdown</h3>
+        <p>This is where you show off your <strong>C++ or Blueprint</strong> logic. Explain the math or the architecture.</p>
+        <div class="code-block">
+            // Paste a cool snippet of code here
+            void AMyActor::BeginPlay() {
+                Super::BeginPlay();
+                // Logic goes here...
+            }
+        </div>
+    </div>
+
+    <footer style="text-align: center; opacity: 0.4; font-size: 0.8rem; margin-top: 40px;">
+        <p>&copy; 2026 Elvin I. T.</p>
+    </footer>
+</div>
+
 </body>
 </html>
