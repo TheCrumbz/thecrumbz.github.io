@@ -1,30 +1,19 @@
-const username = 'TheCrumbz';
-const repo = 'thecrumbz.github.io';
-const folder = 'projects';
+const navigation = `
+    <a href="/index.html" id="nav-about">ABOUT</a>
+    <a href="/projects/casino.html" id="nav-casino">CASINO SYSTEM</a>
+`;
 
-async function buildNav() {
+document.addEventListener("DOMContentLoaded", () => {
     const navElement = document.querySelector('nav');
-    
-    // 1. Add the Home link first
-    navElement.innerHTML = `<a href="/index.html">ABOUT</a>`;
-
-    try {
-        // 2. Fetch the list of files in the /projects folder from GitHub's API
-        const response = await fetch(`https://api.github.com/repos/${username}/${repo}/contents/${folder}`);
-        const files = await response.json();
-
-        // 3. Loop through every file found
-        files.forEach(file => {
-            if (file.name.endsWith('.html')) {
-                // Clean up the name (e.g., "casino-game.html" becomes "CASINO GAME")
-                const displayName = file.name.replace('.html', '').replace(/-/g, ' ').toUpperCase();
-                
-                navElement.innerHTML += `<a href="/${folder}/${file.name}">${displayName}</a>`;
-            }
-        });
-    } catch (error) {
-        console.error("Could not auto-load projects:", error);
+    if (navElement) {
+        navElement.innerHTML = navigation;
+        const path = window.location.pathname;
+        const page = path.split("/").pop();
+        
+        if (page === "index.html" || page === "") {
+            document.getElementById("nav-about").classList.add("active");
+        } else if (page === "casino.html") {
+            document.getElementById("nav-casino").classList.add("active");
+        }
     }
-}
-
-document.addEventListener("DOMContentLoaded", buildNav);
+});
