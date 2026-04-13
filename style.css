@@ -63,3 +63,64 @@ img, video { width: 100%; height: 100%; object-fit: cover; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
 .code-block { background: var(--code); padding: 15px; border-radius: 8px; border: 1px solid var(--border); font-family: monospace; color: #d1d1d1; overflow-x: auto; }
 .btn { display: inline-block; background: var(--accent); color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: bold; }
+
+
+/* =========================================
+   EDUCATION & PROGRESS BARS
+========================================= */
+.course-item { 
+    background: #090c10; 
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent); 
+    padding: 15px; 
+    margin-bottom: 20px; 
+    border-radius: 6px;
+    transition: 0.2s;
+}
+
+.course-item:hover {
+    transform: translateX(5px); /* Slides right slightly when you hover */
+    border-color: #444c56;
+}
+
+.course-title { 
+    font-weight: bold; 
+    color: white; 
+    display: block; 
+    margin-bottom: 5px;
+    font-size: 1.05rem;
+}
+
+.course-meta { 
+    font-size: 0.85rem; 
+    color: #8b949e; 
+    display: block;
+    margin-bottom: 15px; /* Adds space before the bar */
+}
+
+/* The dark track behind the bar */
+.progress-track {
+    width: 100%;
+    background-color: #21262d;
+    border-radius: 10px;
+    height: 8px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+/* The glowing blue bar itself */
+.progress-fill {
+    height: 100%;
+    background-color: var(--accent);
+    border-radius: 10px;
+    box-shadow: 0 0 10px var(--accent); /* Creates the neon glow */
+    transition: width 1s ease-out;
+}
+
+.progress-text {
+    font-size: 0.8rem;
+    color: var(--accent);
+    font-weight: bold;
+    display: flex;
+    justify-content: flex-end; /* Pushes the percentage text to the right */
+}
