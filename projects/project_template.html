@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Elvin IT | Casino System</title>
+    <title>Elvin IT | Example Project</title>
     <link rel="icon" type="image/png" href="../favicon.png">
     <link rel="stylesheet" href="../style.css">
 </head>
@@ -11,10 +11,10 @@
         <nav></nav>
 
         <div class="project-header">
-            <h1>UE5: Casino Backend System</h1>
-            <p>A deep dive into probability architecture, dynamic UI event-dispatching, and game state management.</p>
+            <h1>UE5: Example Project</h1>
+            <p>Basic bio or explanation for the project goes here.</p>
             <div class="info-bar">
-                <div><span>ENGINE:</span> <strong>Unreal Engine 5.4</strong></div>
+                <div><span>ENGINE:</span> <strong>Unreal Engine 5.X</strong></div>
                 <div><span>LANGUAGE:</span> <strong>C++ / Blueprints</strong></div>
                 <div><span>ROLE:</span> <strong>Systems Programmer</strong></div>
             </div>
@@ -39,14 +39,9 @@
         <div id="tech" class="sub-content">
             <div class="section">
                 <h2>Technical Challenges</h2>
-                <p>One major hurdle was ensuring the "Reel Spin" animation didn't dictate the outcome. I built a system where the Server pre-calculates the result, which then sends a "Stop Goal" to the visuals.</p>
+                <p>Explain 1 or more hurdles encountered during development and how they were overcome.</p>
                 <div class="code-block" style="margin-top: 20px;">
-// Pseudo-logic for the Spin Result
-void ACasinoController::GenerateResult() {
-    float RandomRoll = FMath::FRandRange(0.f, 100.f);
-    SelectedOutcome = PayoutTable->GetOutcomeForRoll(RandomRoll);
-    OnSpinResultGenerated.Broadcast(SelectedOutcome);
-}
+Code snippets from the project can be showcased
                 </div>
             </div>
         </div>

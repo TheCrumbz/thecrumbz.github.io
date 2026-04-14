@@ -1,6 +1,6 @@
 const navigation = `
     <a href="/index.html" id="nav-about">ABOUT</a>
-    <a href="/projects/casino.html" id="nav-casino">CASINO SYSTEM</a>
+    <a href="/projects/project_template.html" id="nav-template">EXAMPLE PROJECT</a>
 `;
 
 document.addEventListener("DOMContentLoaded", () => {
