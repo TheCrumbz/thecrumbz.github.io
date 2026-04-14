@@ -9,7 +9,27 @@
 </head>
 <body>
 <div class="container">
-    <nav></nav> 
+    <nav>
+        <div class="nav-item">
+            <a href="index.html" class="active">ABOUT</a>
+        </div>
+
+        <div class="nav-item">
+            <a href="#">GAMES</a>
+            <div class="nav-dropdown">
+                <a href="#" class="dropdown-link">Coming Soon...</a>
+            </div>
+        </div>
+
+        <div class="nav-item">
+            <a href="#">SYSTEMS</a>
+            <div class="nav-dropdown">
+                <a href="#" class="dropdown-link">Example System 1</a>
+                <a href="#" class="dropdown-link">Example System 2</a>
+                <a href="#" class="dropdown-link" style="color: var(--accent); border-top: 1px solid var(--border); margin-top: 5px;">+ Request a System</a>
+            </div>
+        </div>
+    </nav>
 
     <header class="hero">
         <h1>Elvin Ivarsson Täljedal</h1>
@@ -18,8 +38,7 @@
         <div class="timeline">
             <p style="margin-top: 0;">I am a 14 year old game developer based in Sweden. I love game development because of the total creative freedom it gives me. I started coding at age six, and I've spent the last eight years working my way into the game development industry.</p>
             
-            <div class="timeline">
-                <div class="timeline-item">
+            <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <span class="timeline-date">Age 6</span>
@@ -50,7 +69,6 @@
                         <p>High-performance systems architecture with <strong>Unreal Engine 5 & C++</strong></p>
                     </div>
                 </div>
-            </div>
             
             <div class="current-focus">
                 Current Focus: <strong>Actually releasing a game!</strong>

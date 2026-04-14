@@ -22,14 +22,91 @@ h1, h2, h3 { color: white; margin-top: 0; }
 
 /* NAVIGATION */
 nav { 
-    display: flex; gap: 15px; margin-bottom: 30px; 
-    border-bottom: 1px solid var(--border); padding-bottom: 15px; 
+    display: flex; 
+    gap: 15px; 
+    margin-bottom: 30px; 
+    border-bottom: 1px solid var(--border); 
+    padding-bottom: 15px;
+    position: relative; /* This is the "anchor" for the dropdowns */
 }
+
+.nav-item {
+    position: relative; /* Keeps the dropdown attached to the button */
+    display: inline-block;
+}
+
 nav a { 
-    color: var(--text); text-decoration: none; padding: 8px 12px; 
-    border-radius: 6px; font-weight: bold; font-size: 0.9rem; 
+    color: var(--text); 
+    text-decoration: none; 
+    padding: 8px 12px; 
+    border-radius: 6px; 
+    font-weight: bold; 
+    font-size: 0.9rem; 
+    border: 1px solid transparent; /* PREVENTS THE JUMP! */
+    transition: 0.1s ease;
 }
-nav a:hover, nav a.active { background: var(--card); color: var(--accent); border: 1px solid var(--border); }
+
+nav a:hover, nav a.active { 
+    background: var(--card); 
+    color: var(--accent); 
+    border: 1px solid var(--border); 
+}
+
+/* THE DROPDOWN MENU */
+.nav-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%; 
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px;
+    min-width: 180px;
+    z-index: 100;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    /* We removed margin-top so it doesn't create a gap! */
+}
+
+/* 1. The Invisible Bridge: Attached to the NARROW button instead of the WIDE menu */
+.nav-item::after {
+    content: '';
+    position: absolute;
+    bottom: -15px; /* Reaches down to the menu */
+    left: 0;
+    width: 100%; /* Only as wide as the word "GAMES" or "SYSTEMS" */
+    height: 15px;
+}
+
+/* 2. The Custom Animation: Keeps the X-axis perfectly centered while fading in */
+@keyframes dropFade { 
+    from { opacity: 0; transform: translateX(-50%) translateY(10px); } 
+    to { opacity: 1; transform: translateX(-50%) translateY(0); } 
+}
+
+.nav-item:hover .nav-dropdown {
+    display: block;
+    animation: dropFade 0.2s ease-out forwards;
+}
+
+.dropdown-link {
+    display: block;
+    color: var(--text);
+    text-decoration: none;
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    border-radius: 4px;
+    white-space: nowrap;
+    font-weight: normal; 
+    border: 1px solid transparent; /* Prevents the jump here too */
+}
+
+.dropdown-link:hover {
+    background: #21262d;
+    color: var(--accent);
+    border: 1px solid transparent; /* Stops it from copying the main nav's border */
+}
 
 /* HOME PAGE STYLES */
 .hero { padding: 40px 0; border-bottom: 1px solid var(--border); margin-bottom: 30px; }
@@ -226,4 +303,40 @@ p strong {
     letter-spacing: 1px;
     font-weight: 800;
     text-shadow: none; /* This kills the weird red/blue ghosting */
+}
+
+
+/* =========================================
+   SUB-NAVIGATION (PROJECT DROPDOWNS)
+========================================= */
+.sub-nav {
+    display: flex;
+    gap: 10px;
+    margin-top: -15px; /* Pulls it closer to the main nav */
+    margin-bottom: 30px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    flex-wrap: wrap; /* Keeps it clean on mobile */
+}
+
+.sub-link {
+    font-size: 0.8rem;
+    color: #8b949e;
+    text-decoration: none;
+    padding: 5px 12px;
+    border-radius: 4px;
+    background: #161b22;
+    border: 1px solid var(--border);
+    transition: 0.2s;
+}
+
+.sub-link:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+.sub-link.active {
+    background: rgba(88, 166, 255, 0.1);
+    color: var(--accent);
+    border-color: var(--accent);
 }
