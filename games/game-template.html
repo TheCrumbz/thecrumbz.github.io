@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elvin IT | Project Alpha</title>
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <link rel="stylesheet" href="../style.css?v=12">
+</head>
+<body>
+<div class="container">
+    <nav></nav> <header class="project-header">
+        <h1 style="font-size: 2.5rem; margin-bottom: 5px;">Project Alpha (Example)</h1>
+        <p style="color: var(--accent); font-weight: bold; margin-top: 0;">Multiplayer Tactical Extraction Shooter</p>
+        
+        <div class="info-bar">
+            <div><span>Engine</span><strong>Unreal Engine 5.X</strong></div>
+            <div><span>Language</span><strong>C++ / Blueprints</strong></div>
+            <div><span>My Role</span><strong>example: Lead Gameplay Programmer</strong></div>
+        </div>
+    </header>
+
+    <div class="gallery-grid" style="margin-bottom: 30px;">
+        <div class="main-video">
+            <div style="padding: 40px; color: #8b949e; text-align: center; margin-top: 20%;">[Gameplay Trailer / GIF Placeholder]</div>
+        </div>
+        <div class="screenshot-column">
+            <div class="ss-item"><div style="padding: 10px; color: #8b949e; text-align: center; margin-top: 20%;">[Combat Screenshot]</div></div>
+            <div class="ss-item"><div style="padding: 10px; color: #8b949e; text-align: center; margin-top: 20%;">[UI Screenshot]</div></div>
+        </div>
+    </div>
+
+    <div class="content-grid">
+        <div class="section">
+            <h3>Overview</h3>
+            <p>Project Alpha is a high-stakes tactical shooter where players spawn into a hostile environment, gather loot, and attempt to extract. I am responsible for the core networking and moment-to-moment combat feel.</p>
+            <br>
+            <h3>My Core Contributions</h3>
+            <ul style="color: #c9d1d9; line-height: 1.8;">
+                <li>Built a <strong>custom networked weapon system</strong> using C++ with client-side prediction to ensure shooting feels responsive even on high ping.</li>
+                <li>Implemented the <strong>Gameplay Ability System (GAS)</strong> for player buffs, debuffs, and stamina management.</li>
+                <li>Designed a <strong>data-driven inventory</strong> using UDataAssets so designers can add new items without touching the code.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h3>Technical Spotlight: Optimization</h3>
+            <p><strong>The Problem:</strong> When 20+ AI enemies spawned in the zone, server tick rates dropped drastically due to complex pathfinding and sight-checks.</p>
+            <p><strong>The Solution:</strong> I refactored the AI perception system to operate on a time-sliced manager. Instead of every AI checking for the player every frame, the manager distributes the checks across multiple frames.</p>
+            <div style="margin-top: 20px;">
+                <span class="skill-tag">Network Replication</span>
+                <span class="skill-tag">AI Behavior Trees</span>
+                <span class="skill-tag">Performance Profiling</span>
+            </div>
+            
+            <div style="margin-top: 30px;">
+                <a href="#" class="btn">View on GitHub</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../nav.js"></script>
+</body>
+</html>

@@ -52,6 +52,24 @@ nav a:hover, nav a.active {
     border: 1px solid var(--border); 
 }
 
+/* THE CONTACT BUTTON (Ghost Style) */
+.nav-contact {
+    background: transparent !important; /* Removes the heavy blue block */
+    color: var(--accent) !important; /* Makes the text blue */
+    padding: 8px 16px !important;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: 0.2s ease;
+    border: 1px solid var(--accent) !important; /* Keeps the blue outline */
+}
+
+.nav-contact:hover {
+    background: var(--accent) !important; /* Fills in with solid blue when hovered */
+    color: #0d1117 !important; /* Text turns dark so you can read it */
+    box-shadow: 0 0 15px rgba(88, 166, 255, 0.3); /* Adds a nice glow */
+}
+
 /* THE DROPDOWN MENU */
 .nav-dropdown {
     display: none;

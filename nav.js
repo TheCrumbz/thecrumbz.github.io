@@ -6,17 +6,19 @@ const navigation = `
     <div class="nav-item">
         <a href="#" id="nav-games">GAMES</a>
         <div class="nav-dropdown">
-            <a href="#" class="dropdown-link">Coming Soon...</a>
+            <a href="/games/game-template.html" class="dropdown-link">Example Game</a>
         </div>
     </div>
 
     <div class="nav-item">
         <a href="#" id="nav-systems">SYSTEMS</a>
         <div class="nav-dropdown">
-            <a href="#" class="dropdown-link">Inventory Framework</a>
-            <a href="#" class="dropdown-link">Interaction Pro</a>
-            <a href="#" class="dropdown-link" style="color: var(--accent); border-top: 1px solid var(--border); margin-top: 5px;">+ Request a System</a>
+            <a href="/systems/system-template.html" class="dropdown-link">Example System</a>
         </div>
+    </div>
+
+    <div class="nav-item" style="margin-left: auto;">
+        <a href="https://discordapp.com/users/876862412228284456" target="_blank" class="nav-contact">CONTACT ME</a>
     </div>
 `;
 

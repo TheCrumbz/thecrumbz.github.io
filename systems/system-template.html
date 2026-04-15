@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elvin IT | Modular Inventory</title>
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <link rel="stylesheet" href="../style.css?v=12">
+</head>
+<body>
+<div class="container">
+    <nav></nav> <header class="project-header">
+        <h1 style="font-size: 2.5rem; margin-bottom: 5px;">Modular Inventory Framework (Example)</h1>
+        <p style="color: var(--accent); font-weight: bold; margin-top: 0;">A drag-and-drop replicated inventory component for UE5.</p>
+        
+        <div class="info-bar">
+            <div><span>Status</span><strong>Completed (V 1.0)</strong></div>
+            <div><span>Architecture</span><strong>Data-Driven / Component Based</strong></div>
+            <div><span>Availability</span><strong>Open Source</strong></div>
+        </div>
+    </header>
+
+    <div class="section" style="margin-bottom: 30px;">
+        <h3>System Architecture</h3>
+        <p>I built this framework because I was tired of rewriting inventory logic for every prototype. This system is completely decoupled from the player character—it is a single <code>UActorComponent</code> that can be attached to players, chests, or vehicles.</p>
+        
+        <div class="code-block" style="margin-top: 20px;">
+// Example: Adding an item server-side is highly secure
+bool UInventoryComponent::TryAddItem(UItemData* Item, int32 Quantity)
+{
+    if (!GetOwner()->HasAuthority()) return false;
+    
+    if (CurrentWeight + (Item->Weight * Quantity) > MaxWeight)
+    {
+        Client_OnInventoryFull();
+        return false;
+    }
+
+    // Process Add Logic...
+    return true;
+}
+        </div>
+    </div>
+
+    <div class="content-grid">
+        <div class="section">
+            <h3>Core Features</h3>
+            <ul style="color: #c9d1d9; line-height: 1.8;">
+                <li><strong>100% Server Authoritative:</strong> Prevents client-side item duplication and weight spoofing.</li>
+                <li><strong>Weight & Slot Systems:</strong> Can be configured to use grid-based slots or simple weight limits.</li>
+                <li><strong>Event Dispatchers:</strong> UI automatically updates by listening to <code>OnInventoryChanged</code> delegates, keeping UI logic separated from backend logic.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h3>How to integrate it</h3>
+            <p>To use this system in a new project, a developer simply needs to:</p>
+            <ol style="color: #8b949e; line-height: 1.8; margin-bottom: 25px;">
+                <li>Attach <code>UInventoryComponent</code> to any Actor.</li>
+                <li>Create Data Assets inheriting from <code>UItemData</code>.</li>
+                <li>Bind the UI to the Component's broadcast events.</li>
+            </ol>
+            <a href="#" class="btn" style="background: transparent; border: 1px solid var(--accent); color: var(--accent);">Get the Source Code</a>
+        </div>
+    </div>
+</div>
+<script src="../nav.js"></script>
+</body>
+</html>
