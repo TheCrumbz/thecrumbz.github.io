@@ -6,14 +6,14 @@ const navigation = `
     <div class="nav-item">
         <a href="#" id="nav-games">GAMES</a>
         <div class="nav-dropdown">
-            <a href="/games/game-template.html" class="dropdown-link">Example Game</a>
+            <a href="" class="dropdown-link"></a>
         </div>
     </div>
 
     <div class="nav-item">
         <a href="#" id="nav-systems">SYSTEMS</a>
         <div class="nav-dropdown">
-            <a href="/systems/system-template.html" class="dropdown-link">Example System</a>
+            <a href="/systems/train-track.html" class="dropdown-link">Procedural Train Track</a>
         </div>
     </div>
 

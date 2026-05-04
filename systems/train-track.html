@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elvin IT | Train Track</title>
+
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <link rel="stylesheet" href="../style.css?v=12">
+</head>
+<body>
+<div class="container">
+    <nav></nav> <header class="project-header">
+        <h1 style="font-size: 2.5rem; margin-bottom: 5px;">Procedural Spline Track Generator</h1>
+        <p style="color: var(--accent); font-weight: bold; margin-top: 0;">A performance-focused C++ level design tool for UE5.</p>
+        
+        <div class="info-bar">
+            <div><span>Language</span><strong>C++</strong></div>
+            <div><span>Focus</span><strong>Level Design Tools / Spline Math</strong></div>
+            <div><span>Status</span><strong>Completed</strong></div>
+        </div>
+
+        <div style="margin-top: 30px;">
+            <a href="https://github.com/TheCrumbz/Procedural-Train-Track" target="_blank" class="project-btn">View on GitHub</a>
+            <a href="YOUR_FAB_LINK_HERE" target="_blank" class="project-btn outline">Get on Fab (NON-FUNCTIONAL)</a>
+        </div>
+    </header>
+
+    <div class="gallery-grid" style="margin-bottom: 30px;">
+        <div class="main-video">
+            <video src="../media\train-track\trackbuilding.mp4" autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover;"></video>
+        </div>
+        <div class="screenshot-column">
+            <div class="ss-item" style="background: transparent; border: none; aspect-ratio: auto; height: auto;">
+                <img src="../media\train-track\draftmode.png" alt="Draft Mode boolean in Details Panel" style="width: 100%; height: 100%; object-fit: contain;">
+            </div>
+            <div class="ss-item">
+                <img src="../media\train-track\track.png" alt="In-game screenshot of the generated train track" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+        </div>
+    </div>
+
+    <div class="section" style="margin-bottom: 30px;">
+        <h3>The Architecture</h3>
+        <p>I built this system to allow level designers to drag and drop train tracks seamlessly across a map. Instead of placing static meshes manually, this system runs in the <code>OnConstruction</code> script, dynamically generating the track along a <code>USplineComponent</code> in real-time as the user moves spline points.</p>
+        
+        <pre style="margin: 0;"><code class="language-cpp">
+// Optimization: Using HISM for Draft Mode to save editor performance
+if (bDraftMode) 
+{
+    const FVector Location(TrackSpline->GetLocationAtDistanceAlongSpline(i * MeshLength, ESplineCoordinateSpace::World));
+    const FRotator Rotation(TrackSpline->GetRotationAtDistanceAlongSpline(i * MeshLength, ESplineCoordinateSpace::World));
+        
+    DraftModeHISM->AddInstance(FTransform(Rotation, Location));
+}
+else 
+{
+    // High-fidelity SplineMesh generation...
+}
+        </code></pre>
+    </div>
+
+    <div class="content-grid">
+        <div class="section">
+            <h3>Core Features</h3>
+            <ul class="feature-list">
+                <li><strong>Dynamic Stretching:</strong> Automatically calculates the amount of meshes that fit inside the spline and mathematically stretches them to prevent gaps.</li>
+                <li><strong>Spline Banking & Roll:</strong> Extracts local rotation data from the spline points to bank the track accurately around sharp turns.</li>
+                <li><strong>Tangent Clamping:</strong> Prevents extreme mesh distortion by clamping tangents to the target mesh length.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h3>Technical Spotlight: Optimization</h3>
+            <p><strong>The Problem:</strong> Generating dozens of <code>USplineMeshComponents</code> recalculates complex collision and rendering data, which can heavily tank editor performance when dragging a spline.</p>
+            <p><strong>The Solution:</strong> I engineered a <strong>Draft Mode</strong>. When enabled, it clears the Spline Meshes and spawns a single <code>UHierarchicalInstancedStaticMeshComponent</code>. This allows level designers to block out miles of track with zero lag, disabling draft mode only when finalizing the level.</p>
+            
+            <div style="margin-top: 20px;">
+                <span class="skill-tag">Spline Math</span>
+                <span class="skill-tag">HISM Optimization</span>
+                <span class="skill-tag">Tool Development</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="lightbox" class="lightbox">
+    <span class="lightbox-close">&times;</span>
+    <div id="lightbox-content"></div>
+</div>
+
+<script src="../nav.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+
+<script>
+    Prism.languages.insertBefore('cpp', 'keyword', {
+        'unreal-macro': {
+            pattern: /\b(UCLASS|USTRUCT|UENUM|UFUNCTION|UPROPERTY|GENERATED_BODY|UE_LOG)\b/,
+        },
+        'unreal-class': {
+            // This smart regex catches AActor, UObject, FVector, ESpline..., TArray, TEnumAsByte, etc!
+            pattern: /\b([FUAET][A-Z][a-zA-Z0-9_]*)\b/,
+        }
+    });
+</script>
+
+<script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxContent = document.getElementById('lightbox-content');
+    const closeBtn = document.querySelector('.lightbox-close');
+    const mediaItems = document.querySelectorAll('.gallery-grid img, .gallery-grid video');
+
+    // 1. When a gallery item is clicked...
+    mediaItems.forEach(item => {
+        item.addEventListener('click', () => {
+            // Clone the image/video so we don't accidentally remove it from the grid
+            const clone = item.cloneNode(true);
+            
+            // If it's a video, add play controls to the big version!
+            if (clone.tagName === 'VIDEO') {
+                clone.controls = true;
+            }
+
+            // Put the clone into the lightbox and turn it on
+            lightboxContent.innerHTML = '';
+            lightboxContent.appendChild(clone);
+            lightbox.classList.add('active');
+        });
+    });
+
+    // 2. A function to close and clean up
+    function closeLightbox() {
+        lightbox.classList.remove('active');
+        // Destroy the content so videos don't keep playing invisibly in the background
+        setTimeout(() => { lightboxContent.innerHTML = ''; }, 200); 
+    }
+
+    // 3. Close when clicking the X, OR clicking the dark background!
+    closeBtn.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) { closeLightbox(); }
+    });
+</script>
+</body>
+</html>

@@ -156,8 +156,18 @@ img, video { width: 100%; height: 100%; object-fit: cover; }
 .sub-content { display: none; }
 .sub-content.active { display: block; animation: fadeIn 0.3s; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
-.code-block { background: var(--code); padding: 15px; border-radius: 8px; border: 1px solid var(--border); font-family: monospace; color: #d1d1d1; overflow-x: auto; }
 .btn { display: inline-block; background: var(--accent); color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: bold; }
+.code-block { 
+    background: var(--code); 
+    padding: 15px; 
+    border-radius: 8px; 
+    border: 1px solid var(--border); 
+    font-family: monospace; 
+    color: #d1d1d1; 
+    overflow-x: auto; 
+    white-space: pre; /* THIS IS THE MAGIC FIX */
+    line-height: 1.5; /* Adds a little breathing room between lines */
+}
 
 /* MAKING BOLD ACTUALLY STAND OUT */
 p strong {
@@ -357,4 +367,179 @@ p strong {
     background: rgba(88, 166, 255, 0.1);
     color: var(--accent);
     border-color: var(--accent);
+}
+
+/* =========================================
+   UNREAL ENGINE C++ CODE THEME (VS DARK)
+========================================= */
+pre[class*="language-"] {
+    background: var(--code) !important; /* Uses your super-dark black background */
+    color: #d4d4d4;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    padding: 15px;
+    margin-top: 20px;
+    font-size: 0.9rem;
+    white-space: pre-wrap !important; /* THIS FIXES THE SCROLLING */
+    word-break: break-word !important; /* Forces long lines to wrap cleanly */
+}
+
+code[class*="language-"], pre[class*="language-"] {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    line-height: 1.6;
+}
+
+/* Base C++ Colors */
+.token.comment { color: #6a9955; } /* Green comments */
+.token.keyword { color: #569cd6; font-weight: bold; } /* Blue keywords (if, void, const) */
+.token.string { color: #ce9178; } /* Orange strings */
+.token.number { color: #b5cea8; } /* Light green numbers */
+.token.operator, .token.punctuation { color: #d4d4d4; }
+.token.function { color: #dcdcaa; } /* Yellow functions */
+.token.class-name { color: #4ec9b0; } /* Teal classes (AActor, FVector) */
+
+/* Custom Unreal Engine Colors */
+.token.unreal-macro { color: #bd63c5; font-weight: bold; } /* Purple/Pink Macros */
+.token.unreal-class { color: #4ec9b0; } /* Teal UE5 Types */
+
+
+
+/* =========================================
+   CUSTOM FEATURE LISTS
+========================================= */
+.feature-list {
+    list-style: none; /* Removes the boring default circle bullets */
+    padding-left: 0;
+    margin-top: 15px;
+}
+
+.feature-list li {
+    position: relative;
+    padding-left: 25px; /* Makes room for our custom bullet */
+    margin-bottom: 15px;
+    color: #c9d1d9;
+    line-height: 1.6;
+}
+
+/* The custom blue arrow bullet */
+.feature-list li::before {
+    content: '▹'; /* A sleek hollow arrow */
+    position: absolute;
+    left: 0;
+    top: 0px;
+    color: var(--accent);
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.feature-list strong {
+    color: white; /* Makes the bold text pop brighter than the description */
+}
+
+
+/* =========================================
+   FULLSCREEN LIGHTBOX MODAL
+========================================= */
+.lightbox {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 9999; /* Makes sure it sits on top of the navbar */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(9, 12, 16, 0.95); /* Extremely dark, slightly transparent */
+    backdrop-filter: blur(5px); /* Blurs the website behind it! */
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.lightbox.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+}
+
+#lightbox-content {
+    max-width: 90vw; /* Won't go wider than 90% of the screen */
+    max-height: 90vh; /* Won't go taller than 90% of the screen */
+    border-radius: 8px;
+    box-shadow: 0 0 30px rgba(88, 166, 255, 0.15); /* Subtle blue glow */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#lightbox-content img, #lightbox-content video {
+    max-width: 100%;
+    max-height: 90vh;
+    border-radius: 8px;
+    object-fit: contain; /* Ensures nothing is chopped off */
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s ease;
+    z-index: 10000;
+}
+
+.lightbox-close:hover {
+    color: var(--accent);
+    transform: scale(1.1);
+}
+
+/* Changes the mouse cursor to a magnifying glass over your gallery */
+.gallery-grid img, .gallery-grid video {
+    cursor: zoom-in;
+    transition: 0.2s ease;
+}
+
+.gallery-grid img:hover, .gallery-grid video:hover {
+    opacity: 0.8; /* Slight dim when hovering to show it's clickable */
+}
+
+
+/* =========================================
+   PROJECT ACTION BUTTONS
+========================================= */
+.project-btn {
+    display: inline-block;
+    background: var(--accent);
+    color: #090c10; /* Dark text on blue background */
+    padding: 10px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.95rem;
+    margin: 0 10px;
+    transition: 0.2s ease;
+    border: 1px solid var(--accent);
+}
+
+/* Reverses the colors on hover with a glow */
+.project-btn:hover {
+    background: transparent;
+    color: var(--accent);
+    box-shadow: 0 0 15px rgba(88, 166, 255, 0.2);
+}
+
+/* Secondary Button Style */
+.project-btn.outline {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border);
+}
+
+/* Subtle white border on hover for the secondary button */
+.project-btn.outline:hover {
+    border-color: white;
+    color: white;
+    box-shadow: none;
 }
