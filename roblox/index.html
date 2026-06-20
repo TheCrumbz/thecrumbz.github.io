@@ -3,19 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elvin I.T. | Roblox Developer & Scripter</title>
+    <title>Elvin I.T. | Premium Roblox Frontend Developer & UI Designer</title>
 
     <link rel="icon" type="image/png" href="../favicon.png">
 
     <style>
         :root {
-            --bg-color: #0d0e15;
-            --card-bg: #161824;
-            --accent-color: #3b82f6; /* Sleek blue matching a pro dev aesthetic */
-            --accent-glow: rgba(59, 130, 246, 0.5);
+            --bg-color: #090a0f;
+            --card-bg: #121420;
+            --accent-color: #3b82f6; /* Premium Pro Blue */
+            --accent-purple: #8b5cf6;
+            --accent-glow: rgba(59, 130, 246, 0.4);
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
-            --roblox-red: #ef4444;
+            --success-green: #10b981;
+            --border-color: rgba(255, 255, 255, 0.06);
         }
 
         * {
@@ -35,19 +37,19 @@
         }
 
         .container {
-            max-width: 700px;
+            max-width: 760px;
             width: 100%;
         }
 
         /* Profile Header */
         header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 35px;
             background: var(--card-bg);
-            padding: 50px 30px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            padding: 50px 35px;
+            border-radius: 24px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
             position: relative;
             overflow: hidden;
         }
@@ -55,28 +57,33 @@
         header::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; right: 0; height: 4px;
-            background: linear-gradient(90deg, var(--accent-color), #8b5cf6);
+            top: 0; left: 0; right: 0; height: 5px;
+            background: linear-gradient(90deg, var(--accent-color), var(--accent-purple));
         }
 
         h1 {
-            font-size: 2.8rem;
-            margin-bottom: 5px;
+            font-size: 2.6rem;
+            margin-bottom: 8px;
             letter-spacing: -1px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffffff 60%, #cbd5e1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .subtitle {
-            color: var(--text-muted);
-            font-size: 1.2rem;
+            color: #60a5fa;
+            font-size: 1.25rem;
             margin-bottom: 25px;
-            font-weight: 500;
+            font-weight: 600;
+            letter-spacing: -0.3px;
         }
 
         .bio {
             font-size: 1.05rem;
             color: var(--text-muted);
-            margin-bottom: 30px;
-            max-width: 600px;
+            margin-bottom: 35px;
+            max-width: 640px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -95,20 +102,21 @@
         }
 
         .btn {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.04);
             color: var(--text-main);
             text-decoration: none;
-            padding: 12px 24px;
-            border-radius: 10px;
+            padding: 12px 26px;
+            border-radius: 12px;
             font-weight: 600;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.95rem;
+            transition: all 0.25s ease;
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .btn:hover {
             background: var(--accent-color);
             border-color: var(--accent-color);
-            box-shadow: 0 0 15px var(--accent-glow);
+            box-shadow: 0 0 20px var(--accent-glow);
             transform: translateY(-2px);
         }
 
@@ -116,16 +124,19 @@
         section {
             background: var(--card-bg);
             padding: 40px;
-            border-radius: 20px;
+            border-radius: 24px;
             margin-bottom: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
         h2 {
-            font-size: 1.8rem;
+            font-size: 1.75rem;
             margin-bottom: 25px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding-bottom: 12px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
         }
 
         /* Tech Stack Tags */
@@ -133,19 +144,145 @@
             display: flex;
             gap: 10px;
             flex-wrap: wrap;
-            margin-bottom: 25px;
+            margin-top: 20px;
         }
 
         .tag {
-            background: rgba(59, 130, 246, 0.15);
-            color: #60a5fa;
-            padding: 6px 12px;
-            border-radius: 6px;
-            font-size: 0.9rem;
+            background: rgba(59, 130, 246, 0.1);
+            color: #93c5fd;
+            border: 1px solid rgba(59, 130, 246, 0.15);
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 0.85rem;
             font-weight: 600;
         }
 
-        /* Skills/Services */
+        .tag.design {
+            background: rgba(139, 92, 246, 0.1);
+            color: #c084fc;
+            border: 1px solid rgba(139, 92, 246, 0.15);
+        }
+
+        /* Visual Showcase Grid */
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        @media(max-width: 640px) {
+            .showcase-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .showcase-card {
+            background: rgba(0, 0, 0, 0.25);
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            transition: transform 0.25s ease;
+        }
+
+        .showcase-card:hover {
+            transform: scale(1.02);
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+
+        .showcase-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            cursor: pointer; /* Indicates it's clickable */
+            transition: opacity 0.25s ease;
+        }
+
+        .showcase-img:hover {
+            opacity: 0.7; /* Dim slightly on hover */
+        }
+
+        .showcase-img-placeholder {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .showcase-info {
+            padding: 15px;
+        }
+
+        .showcase-info h4 {
+            font-size: 1.05rem;
+            margin-bottom: 5px;
+            color: var(--text-main);
+        }
+
+        .showcase-info p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Lightbox Modal Styles */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 9999; 
+            padding-top: 60px; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0, 0, 0, 0.85); 
+            backdrop-filter: blur(8px);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 85vh;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+            animation-name: zoom;
+            animation-duration: 0.3s;
+            object-fit: contain;
+        }
+
+        @keyframes zoom {
+            from {transform: scale(0.9); opacity: 0;}
+            to {transform: scale(1); opacity: 1;}
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.2s;
+            cursor: pointer;
+        }
+
+        .close-modal:hover,
+        .close-modal:focus {
+            color: var(--accent-color);
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Services Grid */
         .service-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -160,15 +297,23 @@
 
         .service-card {
             background: rgba(0, 0, 0, 0.2);
-            padding: 20px;
-            border-radius: 12px;
+            padding: 24px;
+            border-radius: 16px;
             border: 1px solid rgba(255, 255, 255, 0.02);
+            transition: border-color 0.25s ease;
+        }
+
+        .service-card:hover {
+            border-color: rgba(255, 255, 255, 0.08);
         }
 
         .service-card h3 {
-            font-size: 1.1rem;
-            margin-bottom: 8px;
+            font-size: 1.15rem;
+            margin-bottom: 10px;
             color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .service-card p {
@@ -176,33 +321,105 @@
             color: var(--text-muted);
         }
 
-        /* Pricing */
+        /* Terms Box */
+        .tos-box {
+            background: rgba(239, 68, 68, 0.04);
+            border: 1px solid rgba(239, 68, 68, 0.15);
+            padding: 20px 25px;
+            border-radius: 16px;
+            margin-bottom: 25px;
+        }
+
+        .tos-box h3 {
+            color: #f87171;
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .tos-box ul {
+            list-style: none;
+        }
+
+        .tos-box li {
+            font-size: 0.95rem;
+            color: #cbd5e1;
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .tos-box li::before {
+            content: '•';
+            color: #ef4444;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Pricing Tiers */
         .pricing-tier {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 12px;
+            padding: 22px;
+            background: rgba(0, 0, 0, 0.25);
+            border-radius: 16px;
             margin-bottom: 15px;
             border-left: 4px solid var(--accent-color);
+            transition: transform 0.2s ease;
+        }
+
+        .pricing-tier:hover {
+            transform: translateX(4px);
         }
 
         .pricing-info h3 {
-            margin-bottom: 5px;
+            font-size: 1.2rem;
+            margin-bottom: 6px;
+            font-weight: 600;
         }
         
         .pricing-info p {
             color: var(--text-muted);
             font-size: 0.9rem;
+            max-width: 440px;
         }
 
         .price {
-            font-weight: bold;
-            font-size: 1.1rem;
-            color: #4ade80; /* Green for money/robux */
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--success-green);
             text-align: right;
-            min-width: 120px;
+            min-width: 140px;
+            line-height: 1.3;
+        }
+
+        .price span {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            margin-top: 2px;
+        }
+
+        /* CTA Bottom */
+        .cta-box {
+            text-align: center; 
+            background: rgba(0,0,0,0.2); 
+            padding: 35px; 
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.02);
+        }
+
+        .cta-box h3 {
+            color: var(--accent-color); 
+            font-size: 1.8rem; 
+            letter-spacing: 1px; 
+            margin-bottom: 25px;
+            font-weight: 700;
         }
 
         footer {
@@ -215,110 +432,155 @@
 </head>
 <body>
 
+    <!-- Lightbox Modal Framework -->
+    <div id="imageLightbox" class="modal">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="lightboxImage">
+    </div>
+
     <div class="container">
-        <!-- Header -->
         <header>
             <h1>Crumbz | Elvin I.T.</h1>
-            <div class="subtitle">Advanced Systems Scripter | Making Roblox games run like efficient machines."</div>
+            <div class="subtitle">Premium Roblox Frontend Developer & UI Designer</div>
             <p class="bio">
-                I'm a game developer with <span class="highlight">8 years of programming experience</span>. While I currently build high-performance systems in Unreal Engine 5 & C++, my roots are in <span class="highlight">Roblox Studio & Lua</span>. I bring industry-standard object-oriented programming to your Roblox projects.
+                I'm a user interface specialist and frontend developer with <span class="highlight">8 years of engineering experience</span> across various platforms such as <span class="highlight">Roblox, Unity, and Unreal Engine</span>. I don't just deliver static layouts, I design and script completely responsive, beautifully animated visual systems engineered to maximize player retention and monetization.
             </p>
             <div class="nav-links">
-                <a href="#services" class="btn">What I Do</a>
-                <a href="#pricing" class="btn">Pricing</a>
-                <a href="#contact" class="btn">Commission Me</a>
+                <a href="#services" class="btn">What I Build</a>
+                <a href="#showcase" class="btn">Visual Showcase</a>
+                <a href="#pricing" class="btn">Rates & Terms</a>
+                <a href="#contact" class="btn">Hire Me</a>
             </div>
         </header>
 
-        <!-- About & Stack -->
         <section id="about">
-            <h2>The Tech Advantage</h2>
+            <h2>The Frontend Engineering Advantage</h2>
             <p style="margin-bottom: 15px; color: var(--text-muted);">
-                Most Roblox developers only know Luau. Because I work across multiple industry-standard engines, I build Roblox games with proper architecture, making your game highly scalable, secure, and lag-free.
+                A beautiful design isn't enough if it doesn't function flawlessly in-engine. I bridge the gap between creative UI/UX design and technical implementation. Instead of just delivering flat image files, I build fully interactive, scalable, and responsive interfaces optimized perfectly for PC, Mobile, and Console, ensuring an elite player experience with zero client-side rendering lag.
             </p>
             <div class="tags">
-                <span class="tag">Roblox Luau</span>
-                <span class="tag">C++ / UE5</span>
-                <span class="tag">C# / Unity</span>
-                <span class="tag">Object-Oriented Design</span>
+                <span class="tag design">UI/UX Layout Design</span>
+                <span class="tag design">Figma & Photoshop</span>
+                <span class="tag">Interactive UI Scripting</span>
+                <span class="tag">TweenService & Motion Curves</span>
+                <span class="tag">Cross-Platform Responsive Scaling</span>
+                <span class="tag">Roblox Luau Optimization</span>
             </div>
         </section>
 
-        <!-- Services Section -->
         <section id="services">
             <h2>Services Offered</h2>
             <div class="service-grid">
                 <div class="service-card">
-                    <h3>DataStore Systems</h3>
-                    <p>Reliable player data saving, leaderstats setups, and basic inventory tracking so players never lose their progress.</p>
+                    <h3>🎨 Custom UI/UX Layouts</h3>
+                    <p>High-fidelity, modern user interface assets tailored to your game's unique theme (Simulators, RPGs, FPS, or Fighting games).</p>
                 </div>
                 <div class="service-card">
-                    <h3>Monetization Integration</h3>
-                    <p>Scripting Gamepasses and Developer Products, setting up purchase prompts, and building in-game currency shops.</p>
+                    <h3>✨ Immersive UI Animation</h3>
+                    <p>Bringing layouts to life with fluid hover effects, spring modules, transitions, modal pop-ups, and interactive motion curves.</p>
                 </div>
                 <div class="service-card">
-                    <h3>UI Scripting</h3>
-                    <p>Making your user interfaces functional with smooth animations, working buttons, and responsive menus.</p>
+                    <h3>🎒 Functional Gameplay HUDs</h3>
+                    <p>Modular inventory grids, completely engineered status indicators, progression bars, and interactive radar/map displays.</p>
                 </div>
                 <div class="service-card">
-                    <h3>General Scripting</h3>
-                    <p>Scripting interactable map objects, simple tools, proximity prompts, and hunting down/fixing bugs in existing code.</p>
+                    <h3>💰 High-Converting Stores</h3>
+                    <p>Seamlessly integrated Product/Gamepass showcases and currency storefronts structurally optimized to drive revenue transformations.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Pricing Section -->
+        <section id="showcase">
+            <h2>Visual Showcase</h2>
+            <p style="color: var(--text-muted); margin-bottom: 20px;">
+                A clean look at how I transform conceptual game loops into elite, physical player experiences. Click an image to expand.
+            </p>
+            <div class="showcase-grid">
+                <div class="showcase-card">
+                    <img src="media/StudUI.png" alt="Simulator Store UI Concept" class="showcase-img">
+                    <div class="showcase-info">
+                        <h4>Premium Simulator Shop Concept</h4>
+                        <p>A bright, engaging shop interface designed in Figma, featuring strict visual hierarchy, custom vector assets, and a clean layout.</p>
+                    </div>
+                </div>
+                <!-- <div class="showcase-card">
+                    <div class="showcase-img-placeholder">[ Add Screenshot/GIF of HUD ]</div>
+                    <div class="showcase-info">
+                        <h4>Modular RPG Grid Inventory</h4>
+                        <p>Cross-platform responsive item layout featuring optimized page caching and seamless drag transitions.</p>
+                    </div>
+                </div> -->
+            </div>
+        </section>
+
         <section id="pricing">
-            <h2>Rates & Commissioning</h2>
-            <p style="margin-bottom: 20px; color: var(--text-muted);">
-                Payment is accepted via <strong>Robux</strong> (Group Payouts or DevProduct + 30% tax) or <strong>USD</strong>. <br>
-                <em>Note: My rates are currently discounted while I build my public portfolio, and <strong>all prices are negotiable</strong> based on your budget and scope!</em>
+            <h2>Rates & Commissions</h2>
+            
+            <div class="tos-box">
+                <h3>Commission Terms</h3>
+                <ul>
+                    <li><strong>50% Upfront payment</strong> is required to lock in a slot and begin development.</li>
+                    <li>A precise asset specification or wireframe brief must be provided during onboarding.</li>
+                    <li>Any adjustments requested outside the original design brief will be billed as an independent scope expansion.</li>
+                    <li><strong>Flexible & Negotiable:</strong> Listed rates are baseline guidelines. I am always open to discussing specific project budgets!</li>
+                </ul>
+            </div>
+
+            <p style="margin-bottom: 25px; color: var(--text-muted);">
+                Payments are securely managed via <strong>USD</strong> or <strong>Robux</strong> (Group Payouts or Developer Product + 30% Marketplace Tax covering).
             </p>
 
             <div class="pricing-tier">
                 <div class="pricing-info">
-                    <h3>Small Tasks</h3>
-                    <p>Bug fixes, simple UI scripting, basic gamepass prompts, or single scripts.</p>
+                    <h3>Individual UI Component</h3>
+                    <p>A single highly-detailed menu frame, specialized interactive hotbar, customizable loading screen, or singular animated window setup.</p>
                 </div>
                 <div class="price">
-                    500+ R$ <br><span style="font-size: 0.85em; color: var(--text-muted);">($5+ USD)</span>
+                    <span style="display: block; font-size: 0.85rem; color: #f87171; text-decoration: line-through; font-weight: 500; margin-bottom: 2px;">5,000+ R$ ($19+)</span>
+                    3,000+ R$
+                    <span>($11+ USD)</span>
                 </div>
             </div>
 
             <div class="pricing-tier">
                 <div class="pricing-info">
-                    <h3>Medium Systems</h3>
-                    <p>Full DataStore setups, functional shop UIs, working tools, or simple minigame logic.</p>
+                    <h3>Complete Functional System</h3>
+                    <p>An entire modular module engineered from scratch (e.g., Complete scripted Inventory grid, fully stylized multi-tab Shop, or fully animated Trading frame).</p>
                 </div>
                 <div class="price">
-                    2,500+ R$ <br><span style="font-size: 0.85em; color: var(--text-muted);">($15+ USD)</span>
+                    <span style="display: block; font-size: 0.85rem; color: #f87171; text-decoration: line-through; font-weight: 500; margin-bottom: 2px;">25,000+ R$ ($95+)</span>
+                    15,000+ R$
+                    <span>($57+ USD)</span>
                 </div>
             </div>
 
             <div class="pricing-tier">
                 <div class="pricing-info">
-                    <h3>Custom Projects</h3>
-                    <p>Combining multiple systems together (e.g., a shop that saves data and uses Developer Products).</p>
+                    <h3>Full Game Frontend Overhaul</h3>
+                    <p>Every single UI asset across your entire title designed, standardized, responsively scaled across all device sizes, and entirely animated.</p>
                 </div>
                 <div class="price">
-                    5,000+ R$ <br><span style="font-size: 0.85em; color: var(--text-muted);">($30+ USD)</span>
+                    <span style="display: block; font-size: 0.85rem; color: #f87171; text-decoration: line-through; font-weight: 500; margin-bottom: 2px;">75,000+ R$ ($285+)</span>
+                    50,000+ R$
+                    <span>($190+ USD)</span>
                 </div>
             </div>
+
+            <p style="margin-top: 25px; font-size: 0.95rem; color: var(--text-muted); text-align: center; font-style: italic;">
+                💡 Working with a unique scope or tight budget? <strong>All prices are fully negotiable</strong>, let's chat and find a rate that fits!
+            </p>
         </section>
 
-        <!-- Contact Section -->
         <section id="contact">
-            <h2>Contact Me</h2>
-            <p style="margin-bottom: 20px; color: var(--text-muted);">
-                Currently <strong>accepting new commissions</strong>. Reach out to me on Discord with your design document or a detailed brief of what you need programmed!
+            <h2>Let's Build Results</h2>
+            <p style="margin-bottom: 25px; color: var(--text-muted); text-align: center;">
+                Ready to take your game's interface to an elite tier? Direct messages are open to everyone.
             </p>
-            <div style="text-align: center; background: rgba(0,0,0,0.2); padding: 30px; border-radius: 12px;">
-                <p style="font-size: 1.1rem; margin-bottom: 10px;">Discord Tag</p>
-                <h3 style="color: var(--accent-color); font-size: 1.8rem; letter-spacing: 2px; margin-bottom: 25px;">@.crumbz.</h3>
+            <div class="cta-box">
+                <p style="font-size: 1.1rem; margin-bottom: 6px; color: var(--text-muted);">Want something like this? DM me on Discord:</p>
+                <h3>@.crumbz.</h3>
                 
-                <!-- Discord DM Button -->
                 <a href="https://discordapp.com/users/876862412228284456" target="_blank" class="btn" style="background: #5865F2; border-color: #5865F2; display: inline-flex; align-items: center; gap: 8px;">
-                    <!-- Optional: SVG Discord Icon -->
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189z"/>
                     </svg>
@@ -328,9 +590,39 @@
         </section>
 
         <footer>
-            &copy; 2026 Elvin Ivarsson Täljedal. Built for high-performance development.
+            &copy; 2026 Elvin Ivarsson Täljedal. Engineered User Experiences.
         </footer>
     </div>
+
+    <!-- JavaScript to handle Lightbox Logic -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const modal = document.getElementById("imageLightbox");
+            const modalImg = document.getElementById("lightboxImage");
+            const closeBtn = document.querySelector(".close-modal");
+            const showcaseImages = document.querySelectorAll(".showcase-img");
+
+            // Open modal when an image is clicked
+            showcaseImages.forEach(img => {
+                img.addEventListener("click", function() {
+                    modal.style.display = "block";
+                    modalImg.src = this.src; // Uses the same source as the thumbnail
+                });
+            });
+
+            // Close modal when X is clicked
+            closeBtn.addEventListener("click", function() {
+                modal.style.display = "none";
+            });
+
+            // Close modal when clicking outside the image
+            modal.addEventListener("click", function(event) {
+                if (event.target === modal) {
+                    modal.style.display = "none";
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
